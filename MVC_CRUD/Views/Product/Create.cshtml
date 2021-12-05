@@ -1,0 +1,59 @@
+﻿@model MVC_CRUD.Models.DataTransferObjects.CreateProductDTO
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="container" style="margin-top:20px">
+    <div class="row">
+        <div class="col-sm-6">
+            @Html.Partial("/Views/Shared/Partial/_FormMessages.cshtml")
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Create Product</h3>
+                </div>
+                <form action="/Product/Create" method="post">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="Name">Name</label>
+                            <input class="form-control" name="Name" placeholder="Product Name" type="text" />
+                            <span class="field-validation-valid" data-valmsg-for="Name" data-valmsg-replace="true"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="Description">Description</label>
+                            <input class="form-control" name="Description" placeholder="Description" type="text">
+                            <span class="field-validation-valid" data-valmsg-for="Description" data-valmsg-replace="true"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="UnitPrice">Unit Price</label>
+                            <input class="form-control" name="UnitPrice" placeholder="Unit Price" type="text">
+                            <span class="field-validation-valid" data-valmsg-for="UnitPrice" data-valmsg-replace="true"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="UnitInStock">Unit In Stock</label>
+                            <input class="form-control" name="UnitInStock" placeholder="Unit In Stock" type="text">
+                            <span class="field-validation-valid" data-valmsg-for="UnitInStock" data-valmsg-replace="true"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="CategoryId">Choose a Category</label>
+                            <select name="CategoryId" class="form-control">
+                                @foreach (var category in Model.Categories)
+                                {
+                                    <option value="@category.Id">@category.Name</option>
+                                }
+                            </select>
+                            <span class="field-validation-valid" data-valmsg-for="CategoryId" data-valmsg-replace="true"></span>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary" style="float:right">Submit</button>
+                        </div>
+                    </div>
+                    <div class="box-footer">
+                        <a class="btn btn-warning btn-block" href="/Product/List">Back to List</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

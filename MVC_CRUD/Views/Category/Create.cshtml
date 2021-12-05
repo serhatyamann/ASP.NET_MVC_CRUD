@@ -1,0 +1,40 @@
+﻿@model MVC_CRUD.Models.DataTransferObjects.CreateCategoryDTO
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="container" style="margin-top:20px">
+    <div class="row">
+        <div class="col-sm-6">
+            @Html.Partial("/Views/Shared/Partial/_FormMessages.cshtml")
+
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Create Category</h3>
+                </div>
+                @using (Html.BeginForm("Create", "Category", FormMethod.Post))
+                {
+                    <div class="box-body">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.Name)
+                            @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @placeholder = "Category Name" })
+                            @Html.ValidationMessageFor(x => x.Name)
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.Description)
+                            @Html.TextBoxFor(x => x.Description, new { @class = "form-control", @placeholder = "Description" })
+                            @Html.ValidationMessageFor(x => x.Description)
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary" style="float:right">Submit</button>
+                        </div>
+                    </div>
+                    <div class="box-footer">
+                        @Html.ActionLink("Back to List", "List", "Category", new { @class = "btn btn-warning btn-block" })
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

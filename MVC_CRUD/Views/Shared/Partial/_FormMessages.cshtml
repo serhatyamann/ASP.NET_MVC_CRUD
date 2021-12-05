@@ -1,0 +1,25 @@
+﻿
+@using MVC_CRUD.Models.Helpers
+
+@if (ViewBag.ProcessStatus == 1)
+{
+    <div class="alert alert-success alert-dismissable">
+        <h4><i class="icon fa fa-check">Successfull..!</i></h4>
+        @FormMessages.success
+    </div>
+}
+else if (ViewBag.ProcessStatus == 2)
+{
+    <div class="alert alert-danger alert-dismissable">
+        <h4><i class="icon fa fa-check">Failed..!</i></h4>
+        @FormMessages.failed
+    </div>
+}
+
+
+
+
+
+
+
+
